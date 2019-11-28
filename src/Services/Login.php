@@ -25,5 +25,10 @@ class Login
 		]);
 
         return json_decode($response->getContent());
-    }
+	}
+	
+	public function setCookies()
+	{
+		
+	}
 }
