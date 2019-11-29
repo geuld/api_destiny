@@ -19,7 +19,6 @@ class LoginController extends AbstractController
             $login = new Login();
             $token = $login->getToken($code);
 
-            echo 'token = ';
             print_r($token);
 
             return new Response('');

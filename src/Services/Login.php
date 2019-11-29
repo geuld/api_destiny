@@ -12,22 +12,24 @@ class Login
 
     public function getToken($code)
     {
-		$client = HttpClient::create();
-		$response = $client->request('POST', self::URL, [
-			'headers' => [
-				'Content-Type' => 'application/x-www-form-urlencoded',
-				'Authorization' => self::AUTH . base64_encode(self::CLIENT_ID . ":" . self::SECRET_TOKEN)
-			],
-			'body' => [
-				'grant_type' => 'authorization_code',
-				'code' => $code
-			],
-		]);
+		if (!isset($_COOKIE['refresh_token'])) {
+			$client = HttpClient::create();
+			$response = $client->request('POST', self::URL, [
+				'headers' => [
+					'Content-Type' => 'application/x-www-form-urlencoded',
+					'Authorization' => self::AUTH . base64_encode(self::CLIENT_ID . ":" . self::SECRET_TOKEN)
+				],
+				'body' => [
+					'grant_type' => 'authorization_code',
+					'code' => $code
+				],
+			]);
+		}
 
         return json_decode($response->getContent());
 	}
 	
-	public function setCookies()
+	public function setCookies($response)
 	{
 		
 	}
