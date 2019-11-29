@@ -1,8 +1,6 @@
 <?php
 namespace App\Services;
 
-use Exception;
-use phpDocumentor\Reflection\Location;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Dotenv\Dotenv;
 

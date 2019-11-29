@@ -18,5 +18,4 @@ return [
     'homepage' => [[], ['_controller' => 'App\\Controller\\HomepageController::index'], [], [['text', '/']], [], []],
     'search_player' => [['plateforme', 'gamertag'], ['_controller' => 'App\\Controller\\HomepageController::searchPlayer'], [], [['variable', '/', '[^/]++', 'gamertag', true], ['variable', '/', '[^/]++', 'plateforme', true], ['text', '/searchplayer']], [], []],
     'app_login_login_login' => [[], ['_controller' => 'App\\Controller\\Login\\LoginController::login'], [], [['text', '/login']], [], []],
-    'app_login_login_refreshtoken' => [[], ['_controller' => 'App\\Controller\\Login\\LoginController::refreshToken'], [], [['text', '/refresh']], [], []],
 ];

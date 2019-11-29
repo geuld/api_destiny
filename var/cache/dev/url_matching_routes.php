@@ -15,7 +15,6 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\HomepageController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login_login_login', '_controller' => 'App\\Controller\\Login\\LoginController::login'], null, null, null, false, false, null]],
-        '/refresh' => [[['_route' => 'app_login_login_refreshtoken', '_controller' => 'App\\Controller\\Login\\LoginController::refreshToken'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

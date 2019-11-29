@@ -20,20 +20,20 @@ class LoginController extends AbstractController
             $token = $login->getToken($code);
 
             print_r($token);
-
-            return new Response('');
         }
+
+        return $this->render('base.html.twig');
     }
 
-    /**
-     * @Route("/refresh")
-     */
-    public function refreshToken()
-    {
-        if (isset($_COOKIE['refresh_token'])) {
-            $refresh = $_COOKIE['refresh_token'];
-            $login = new Login();
-            $refresh_token = $login->refresh($refresh);
-        }
-    }
+    // /**
+    //  * @Route("/refresh")
+    //  */
+    // public function refreshToken()
+    // {
+    //     if (isset($_COOKIE['refresh_token'])) {
+    //         $refresh = $_COOKIE['refresh_token'];
+    //         $login = new Login();
+    //         $refresh_token = $login->refresh($refresh);
+    //     }
+    // }
 }
