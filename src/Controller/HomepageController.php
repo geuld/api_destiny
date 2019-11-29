@@ -31,8 +31,6 @@ class HomepageController extends AbstractController
         try {
             $id = $search->getPlayerId($plateforme, $gamertag);
             $player = $search->getPlayerById($id, $plateforme);
-            // echo '<pre>';var_dump($player);
-            // die;
             return $this->render('playerInfos.html.twig', ['player' => $player]);
         } catch (Exception $e) {
             $logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
