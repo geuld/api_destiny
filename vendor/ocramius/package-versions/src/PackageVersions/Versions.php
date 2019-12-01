@@ -13,13 +13,20 @@ namespace PackageVersions;
 final class Versions
 {
     public const ROOT_PACKAGE_NAME = '__root__';
+    /**
+     * Array of all available composer packages.
+     * Dont read this array from your calling code, but use the \PackageVersions\Versions::getVersion() method instead.
+     *
+     * @var array<string, string>
+     * @internal
+     */
     public const VERSIONS          = array (
   'doctrine/annotations' => 'v1.8.0@904dca4eb10715b92569fbcd79e201d5c349b6bc',
   'doctrine/cache' => '1.9.1@89a5c76c39c292f7798f964ab3c836c3f8192a55',
   'doctrine/collections' => '1.6.4@6b1e4b2b66f6d6e49983cebfe23a21b7ccc5b0d7',
   'doctrine/common' => 'v2.11.0@b8ca1dcf6b0dc8a2af7a09baac8d0c48345df4ff',
   'doctrine/dbal' => 'v2.10.0@0c9a646775ef549eb0a213a4f9bd4381d9b4d934',
-  'doctrine/doctrine-bundle' => '2.0.0@82826278bb88ae8c20aee3af3191430dcbcca63a',
+  'doctrine/doctrine-bundle' => '2.0.2@f96fac225563f5b3b4eeb2f80eb982b7f56484d8',
   'doctrine/doctrine-migrations-bundle' => '2.1.2@856437e8de96a70233e1f0cc2352fc8dd15a899d',
   'doctrine/event-manager' => '1.1.0@629572819973f13486371cb611386eb17851e85c',
   'doctrine/inflector' => '1.3.1@ec3a55242203ffa6a4b27c58176da97ff0a7aec1',
@@ -32,7 +39,7 @@ final class Versions
   'egulias/email-validator' => '2.1.11@92dd169c32f6f55ba570c309d83f5209cefb5e23',
   'jdorn/sql-formatter' => 'v1.2.17@64990d96e0959dff8e059dfcdc1af130728d92bc',
   'monolog/monolog' => '2.0.1@f9d56fd2f5533322caccdfcddbb56aedd622ef1c',
-  'ocramius/package-versions' => '1.4.2@44af6f3a2e2e04f2af46bcb302ad9600cba41c7d',
+  'ocramius/package-versions' => '1.5.1@1d32342b8c1eb27353c8887c366147b4c2da673c',
   'ocramius/proxy-manager' => '2.2.3@4d154742e31c35137d5374c998e8f86b54db2e2f',
   'phpdocumentor/reflection-common' => '2.0.0@63a995caa1ca9e5590304cd845c15ad6d482a62a',
   'phpdocumentor/reflection-docblock' => '4.3.2@b83ff7cfcfee7827e1e78b637a5904fe6a96698e',
@@ -43,7 +50,7 @@ final class Versions
   'psr/link' => '1.0.0@eea8e8662d5cd3ae4517c9b864493f59fca95562',
   'psr/log' => '1.1.2@446d54b4cb6bf489fc9d75f55843658e6f25d801',
   'sensio/framework-extra-bundle' => 'v5.5.1@dfc2c4df9f7d465a65c770e9feb578fe071636f7',
-  'symfony/asset' => 'v5.0.0@6b66969b9f5cd53c1ce69bdc651aa962f211b6b6',
+  'symfony/asset' => 'v5.0.1@6b66969b9f5cd53c1ce69bdc651aa962f211b6b6',
   'symfony/cache' => 'v5.0.0@32bd1f9be1684bba768a6834037706cf0950843c',
   'symfony/cache-contracts' => 'v2.0.0@a91281de82119a7a07481b892f709d88da592cd3',
   'symfony/config' => 'v5.0.0@10cb9692805d2152fe2ecb3af018c188c712bba8',
@@ -73,12 +80,12 @@ final class Versions
   'symfony/notifier' => 'v5.0.0@6345175bd16786036263068253c961afc3c15352',
   'symfony/options-resolver' => 'v5.0.0@1ad3d0ffc00cc1990e5c9c7bb6b81578ec3f5f68',
   'symfony/orm-pack' => 'v1.0.7@c57f5e05232ca40626eb9fa52a32bc8565e9231c',
-  'symfony/polyfill-intl-grapheme' => 'v1.12.0@f6d623160da72288a9b704d324e5a0e4b385331a',
-  'symfony/polyfill-intl-icu' => 'v1.12.0@66810b9d6eb4af54d543867909d65ab9af654d7e',
-  'symfony/polyfill-intl-idn' => 'v1.12.0@6af626ae6fa37d396dc90a399c0ff08e5cfc45b2',
-  'symfony/polyfill-intl-normalizer' => 'v1.12.0@c7fcec8e5cd3fc87f91120b0b5d3cb1b7d44f7a9',
-  'symfony/polyfill-mbstring' => 'v1.12.0@b42a2f66e8f1b15ccf25652c3424265923eb4f17',
-  'symfony/polyfill-php73' => 'v1.12.0@2ceb49eaccb9352bff54d22570276bb75ba4a188',
+  'symfony/polyfill-intl-grapheme' => 'v1.13.0@45c566a1ca16273f7ea6b930e013462e00e14502',
+  'symfony/polyfill-intl-icu' => 'v1.13.0@b3dffd68afa61ca70f2327f2dd9bbeb6aa53d70b',
+  'symfony/polyfill-intl-idn' => 'v1.13.0@6f9c239e61e1b0c9229a28ff89a812dc449c3d46',
+  'symfony/polyfill-intl-normalizer' => 'v1.13.0@cfe6ad557c15f3797f667e9518ce759aa04ae4f3',
+  'symfony/polyfill-mbstring' => 'v1.13.0@7b4aab9743c30be783b73de055d24a39cf4b954f',
+  'symfony/polyfill-php73' => 'v1.13.0@4b0e2222c55a25b4541305a053013d5647d3a25f',
   'symfony/process' => 'v5.0.0@110f98bed214a007eb440c7bb14088fed96f847f',
   'symfony/property-access' => 'v5.0.0@8203dcdeb544dd0fa36a127fd04eb8bb08ae44f1',
   'symfony/property-info' => 'v5.0.0@f0bf8d7360e47261ceec67d9338a0c6257f59878',
@@ -102,6 +109,7 @@ final class Versions
   'symfony/var-dumper' => 'v5.0.0@956b8b6e4c52186695f592286414601abfcec284',
   'symfony/var-exporter' => 'v5.0.0@e2f1eeb12edacf744c4b359a859204578fdf8549',
   'symfony/web-link' => 'v5.0.0@572ab541ec2ca2e0d0f76fd08da006805e4db157',
+  'symfony/webpack-encore-bundle' => 'v1.7.2@787c2fdedde57788013339f05719c82ce07b6058',
   'symfony/yaml' => 'v5.0.0@51b684480184fa767b97e28eaca67664e48dd3e9',
   'twig/extra-bundle' => 'v3.0.0@c56821429490e351003a09b7ed0c917feec2355f',
   'twig/twig' => 'v3.0.0@9b58bb8ac7a41d72fbb5a7dc643e07923e5ccc26',
@@ -120,14 +128,14 @@ final class Versions
   'symfony/profiler-pack' => 'v1.0.4@99c4370632c2a59bb0444852f92140074ef02209',
   'symfony/test-pack' => 'v1.0.6@ff87e800a67d06c423389f77b8209bc9dc469def',
   'symfony/web-profiler-bundle' => 'v5.0.0@6cc40446060e174a690e0f6da90731133b29b664',
-  'paragonie/random_compat' => '2.*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-ctype' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-iconv' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-php72' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-php71' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-php70' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  'symfony/polyfill-php56' => '*@442f5fb3a9d2e07761ca325006d0758681fa3a18',
-  '__root__' => 'dev-master@442f5fb3a9d2e07761ca325006d0758681fa3a18',
+  'paragonie/random_compat' => '2.*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-ctype' => '*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-iconv' => '*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-php72' => '*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-php71' => '*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-php70' => '*@0c856560169b845de2b6957f6513f63130682043',
+  'symfony/polyfill-php56' => '*@0c856560169b845de2b6957f6513f63130682043',
+  '__root__' => 'dev-master@0c856560169b845de2b6957f6513f63130682043',
 );
 
     private function __construct()
@@ -136,6 +144,8 @@ final class Versions
 
     /**
      * @throws \OutOfBoundsException If a version cannot be located.
+     *
+     * @psalm-param key-of<self::VERSIONS> $packageName
      */
     public static function getVersion(string $packageName) : string
     {
