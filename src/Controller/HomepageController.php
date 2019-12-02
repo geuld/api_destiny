@@ -19,7 +19,7 @@ class HomepageController extends AbstractController
     }
 
     /**
-     * @Route("/searchplayer/{plateforme}/{gamertag}", name="search_player")
+     * @Route("/player/{plateforme}/{gamertag}", name="search_player")
      */
     public function searchPlayer(Int $plateforme, String $gamertag, LoggerInterface $logger)
     {

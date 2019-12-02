@@ -16,6 +16,6 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'homepage' => [[], ['_controller' => 'App\\Controller\\HomepageController::index'], [], [['text', '/']], [], []],
-    'search_player' => [['plateforme', 'gamertag'], ['_controller' => 'App\\Controller\\HomepageController::searchPlayer'], [], [['variable', '/', '[^/]++', 'gamertag', true], ['variable', '/', '[^/]++', 'plateforme', true], ['text', '/searchplayer']], [], []],
+    'search_player' => [['plateforme', 'gamertag'], ['_controller' => 'App\\Controller\\HomepageController::searchPlayer'], [], [['variable', '/', '[^/]++', 'gamertag', true], ['variable', '/', '[^/]++', 'plateforme', true], ['text', '/player']], [], []],
     'app_login_login_login' => [[], ['_controller' => 'App\\Controller\\Login\\LoginController::login'], [], [['text', '/login']], [], []],
 ];
