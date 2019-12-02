@@ -19,10 +19,15 @@ class LoginController extends AbstractController
             $login = new Login();
             $token = $login->getToken($code);
 
-            print_r($token);
+            print_r($token);die;
+
+            return $this->render('homepage.html.twig');
+        }
+        else {
+            return $this->redirectToRoute('homepage');
         }
 
-        return $this->render('base.html.twig');
+       
     }
 
     // /**
