@@ -13,3 +13,5 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+var/cache/dev/profiler/index.csv
+var/log/dev.log
