@@ -115,3 +115,8 @@ c7d9fe,127.0.0.1,GET,https://127.0.0.1:8000/login,1575039590,2509fd,500
 bbfaa5,127.0.0.1,GET,https://127.0.0.1:8000/login?code=e0f3de17234587242f35cab78d920010,1575039675,,200
 6521f4,127.0.0.1,GET,https://127.0.0.1:8000/login?error=invalid_request&error_description=Une%20erreur%20s%26%2339%3Best%20produite.%20Veuillez%20r%C3%A9essayer%20plus%20tard.,1575040314,,200
 80237f,127.0.0.1,GET,https://127.0.0.1:8000/login?code=e8884bb2d4f84117f0bcf280fd848fa0,1575040317,,200
+0bb914,127.0.0.1,GET,https://127.0.0.1:8000/,1575277323,,200
+aa6f4a,127.0.0.1,GET,https://127.0.0.1:8000/searchplayer/1/Moumoude18,1575277337,,200
+93bcb3,127.0.0.1,GET,https://127.0.0.1:8000/searchplayer/1/Moumoude18,1575277342,,200
+b73417,127.0.0.1,GET,https://127.0.0.1:8000/searchplayer/1/Moumoude18,1575277693,,200
+bdccce,127.0.0.1,GET,https://127.0.0.1:8000/,1575277761,,200
