@@ -1,14 +1,3 @@
 body {
-    background-color: rgb(49, 49, 49);
-}
-
-nav {    
-    background-color: rgb(17, 17, 17);    
-    vertical-align: auto;
-}
-#nav, .logo-nav {
-    width: 50px;
-}
-.home-background {
-    width: 100%;
+    background-color: blue;
 }
