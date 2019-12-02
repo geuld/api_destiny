@@ -4,7 +4,11 @@
 /.env.local.php
 /.env.*.local
 /public/bundles/
-/var/
+/var/*
+/var/cache/*
+/var/log/*
+var/cache/dev/profiler/index.csv
+var/log/dev.log
 /vendor/
 ###< symfony/framework-bundle ###
 
@@ -21,5 +25,4 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 node_modules
-node_modules
-node_modules
+
