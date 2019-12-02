@@ -33,7 +33,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/searchplayer/([^/]++)/([^/]++)(*:200)'
+                .'|/player/([^/]++)/([^/]++)(*:194)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -44,7 +44,7 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        200 => [
+        194 => [
             [['_route' => 'search_player', '_controller' => 'App\\Controller\\HomepageController::searchPlayer'], ['plateforme', 'gamertag'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
