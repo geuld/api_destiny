@@ -5,38 +5,34 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Services\Login;
+use App\Services\SearchPlayer;
 use Psr\Log\LoggerInterface;
 
 class LoginController extends AbstractController
 {
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+        $this->login = new Login($logger);
+        $this->search = new SearchPlayer($logger);
+    }
+
     /**
      * @Route("/login")
      */
-    public function login(LoggerInterface $logger)
+    public function login()
     {
-        $logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
+        $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
         if (isset($_GET['code'])) {
             $code = $_GET['code'];
-
-            $login = new Login();
-            $token = $login->getToken($code);print_r($token);die;
-
-            return $this->render('homepage.html.twig');
+            $token = $this->login->getToken($code);
+            $user = $this->login->getCurrentUser($token->membership_id);
+            return $this->render('homepage.html.twig', [
+                'displayName' => $user->Response->displayName
+            ]);
         }
         else {
             return $this->redirectToRoute('homepage');
         }       
     }
-
-    // /**
-    //  * @Route("/refresh")
-    //  */
-    // public function refreshToken()
-    // {
-    //     if (isset($_COOKIE['refresh_token'])) {
-    //         $refresh = $_COOKIE['refresh_token'];
-    //         $login = new Login();
-    //         $refresh_token = $login->refresh($refresh);
-    //     }
-    // }
 }
