@@ -30,7 +30,6 @@ class Login
 				],
 			]);
 			$this->setCookies(json_decode($response->getContent()));
-			return json_decode($response->getContent());
 		}
 		else {
 			$client = HttpClient::create();
@@ -45,8 +44,9 @@ class Login
 				],
 			]);			
 			$this->setCookies(json_decode($response->getContent()));
-			return json_decode($response->getContent());
 		}
+
+		return json_decode($response->getContent());
 	}
 	
 	public function setCookies($response)
@@ -60,23 +60,23 @@ class Login
 	public function ifSession() 
 	{
 		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-		if (session_status() == PHP_SESSION_NONE && isset($_COOKIE['membership_id'])) {
-			$this->getToken();
-            session_start();
+		if ((session_status() == PHP_SESSION_NONE && isset($_COOKIE['membership_id'])) || (session_status() == PHP_SESSION_ACTIVE && isset($_COOKIE['membership_id']))) {
+			session_start();
+			return $this->getToken();
 		}
 		elseif (session_status() == PHP_SESSION_ACTIVE && !isset($_COOKIE['membership_id'])) {
 			session_destroy();
 		}
 	}
 
-	public function getCurrentUser($memberId)
+	public function getCurrentUser($token)
 	{
 		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
 		$client = HttpClient::create();
 		$response = $client->request('GET', $_ENV['URL_GET_USER'], [
 			'headers' => [
 				'X-Api-Key' => $_ENV['API_KEY'],
-				'Authorization' => 'Bearer ' . $_COOKIE['access_token']
+				'Authorization' => 'Bearer ' . $token
             ],
 		]);
 		return json_decode($response->getContent());

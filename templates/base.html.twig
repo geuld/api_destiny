@@ -26,6 +26,12 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
+                {% dump(app.session) %}
+                {% if app.session is empty %}
+                pas connecté
+                {% else %}
+                connecté
+                {% endif %}
                 <li class="user-icon">
                     <a href="https://www.bungie.net/fr/OAuth/Authorize?client_id=31249&response_type=code">
                         <i class="fas fa-user-alt fa-3x"></i>

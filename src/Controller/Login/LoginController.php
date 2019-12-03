@@ -26,10 +26,11 @@ class LoginController extends AbstractController
         if (isset($_GET['code'])) {
             $code = $_GET['code'];
             $token = $this->login->getToken($code);
-            $user = $this->login->getCurrentUser($token->membership_id);
-            return $this->render('homepage.html.twig', [
-                'displayName' => $user->Response->displayName
-            ]);
+            //$user = $this->login->getCurrentUser($token);
+            // return $this->render('homepage.html.twig', [
+            //     'displayName' => $user->Response->displayName
+            // ]);
+            return $this->redirectToRoute('homepage');
         }
         else {
             return $this->redirectToRoute('homepage');
