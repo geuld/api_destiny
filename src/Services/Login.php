@@ -24,6 +24,10 @@ class Login
 					'code' => $code
 				],
 			]);
+			session_start();
+		}
+		else {
+
 		}
 
         return json_decode($response->getContent());

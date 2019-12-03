@@ -13,8 +13,9 @@ class HomepageController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function index()
+    public function index(LoggerInterface $logger)
     {
+        $logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
         return $this->render('homepage.html.twig');
     }
 
