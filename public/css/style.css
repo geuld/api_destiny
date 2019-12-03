@@ -1,13 +1,39 @@
+@font-face{
+    font-family: 'Futurist-Fixed';
+    src: url(../fonts/futurist.ttf) format('truetype');
+}
+
+
 body {
     background-color: rgb(49, 49, 49);
 }
 
 nav {    
-    background-color: rgb(17, 17, 17);    
-    vertical-align: auto;
+    background-color: rgb(17, 17, 17);  
+    font-family: Futurist-Fixed;  
+    color: lightslategray;
 }
-#nav, .logo-nav {
-    width: 50px;
+nav a {
+    text-decoration: none;
+    color: lightslategrey;
 }
+nav a:hover {
+    color: lightgray;
+}
+.logo-nav {
+    width: 48px;
+}
+.user-icon {
+    width: auto;
+    height: auto;
+    color: lightslategray;
+    position: absolute;
+    right: 3%;
+}
+
 .home-background {
+    margin-top: 0;
+    margin-bottom: 0;
     width: 100%;
+}
+
