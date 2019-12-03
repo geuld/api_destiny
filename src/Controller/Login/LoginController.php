@@ -25,9 +25,7 @@ class LoginController extends AbstractController
         }
         else {
             return $this->redirectToRoute('homepage');
-        }
-
-       
+        }       
     }
 
     // /**
