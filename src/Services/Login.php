@@ -67,11 +67,17 @@ class Login
 		}
 	}
 
-	public function ifCookies()
+	public function getDisplayName()
 	{
-		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-		if (isset($_COOKIE['refresh_token'])) {
-			session_start();
+		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');		
+		if (!isset($_COOKIE['access_token'])) {
+			$refreshToken = $this->refreshToken();
+			$currentUser = $this->getCurrentUser($refreshToken->access_token);
+			return $currentUser->Response->displayName;
+		}
+		else {
+			$currentUser = $this->getCurrentUser($_COOKIE['access_token']);
+			return $currentUser->Response->displayName;
 		}
 	}
 

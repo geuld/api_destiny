@@ -5,7 +5,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Services\Login;
-use App\Services\SearchPlayer;
 use Psr\Log\LoggerInterface;
 
 class LoginController extends AbstractController
@@ -14,7 +13,6 @@ class LoginController extends AbstractController
     {
         $this->logger = $logger;
         $this->login = new Login($logger);
-        $this->search = new SearchPlayer($logger);
     }
 
     /**
@@ -26,14 +24,27 @@ class LoginController extends AbstractController
         if (isset($_GET['code'])) {
             $code = $_GET['code'];
             $this->login->getToken($code);
-            //$user = $this->login->getCurrentUser($token);
-            // return $this->render('homepage.html.twig', [
-            //     'displayName' => $user->Response->displayName
-            // ]);
             return $this->redirectToRoute('homepage');
         }
         else {
             return $this->redirectToRoute('homepage');
         }       
+    }
+
+    /**
+     * @Route("/logout")
+     */
+    public function logout()
+    {
+        $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
+        session_start();
+        if (session_status() == PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }
+        setcookie('access_token', "", time() - 3600);
+        setcookie('refresh_token', "", time() - 3600);
+        setcookie('membership_id', "", time() - 3600);
+
+        return $this->redirectToRoute('homepage');
     }
 }

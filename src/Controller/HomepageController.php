@@ -26,28 +26,14 @@ class HomepageController extends AbstractController
         $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
         if (isset($_COOKIE['refresh_token'])) {
             session_start();
-            if (!isset($_COOKIE['access_token'])) {
-                try {
-                    $refreshToken = $this->login->refreshToken();
-                    $currentUser = $this->login->getCurrentUser($refreshToken->access_token);
-                    return $this->render('homepage.html.twig', [
-                        'displayName' => $currentUser->Response->displayName
-                    ]);
-                } catch (Exception $e) {
-                    $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
-                    return $this->redirectToRoute('homepage', ['error' => 1]);
-                }
-            }
-            else {
-                try {
-                    $currentUser = $this->login->getCurrentUser($_COOKIE['access_token']);
-                    return $this->render('homepage.html.twig', [
-                        'displayName' => $currentUser->Response->displayName
-                    ]);
-                } catch (Exception $e) {
-                    $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
-                    return $this->redirectToRoute('homepage', ['error' => 1]);
-                }
+            try {
+               $displayName = $this->login->getDisplayName();
+               return $this->render('homepage.html.twig', [
+                   'displayName' => $displayName
+               ]);
+            } catch (Exception $e) {
+                $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
+                return $this->redirectToRoute('homepage', ['error' => 1]);
             }
         }
         return $this->render('homepage.html.twig');        
