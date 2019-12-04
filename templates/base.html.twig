@@ -26,17 +26,18 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
-                {% dump(app.session) %}
-                {% if displayName is defined %}
-                {{ displayName }}
-                connecté
-                {% else %}
-                pas connecté
-                {% endif %}
-                <li class="user-icon">
+                <li class="user-account">
+                    {% dump(app.session) %}
+                    {% if displayName is defined %}
+                    <a href="https://www.bungie.net/fr/OAuth/Authorize?client_id=31249&response_type=code">
+                        <i class="fas fa-user-alt fa-2x"></i>
+                        <span>{{ displayName }}</span>
+                    </a>                    
+                    {% else %}                
                     <a href="https://www.bungie.net/fr/OAuth/Authorize?client_id=31249&response_type=code">
                         <i class="fas fa-user-alt fa-3x"></i>
                     </a>
+                    {% endif %}     
                 </li>
             </ul>
         </div>

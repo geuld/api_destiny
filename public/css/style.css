@@ -13,9 +13,15 @@ nav {
     font-family: Futurist-Fixed;  
     color: lightslategray;
 }
+nav ul .nav-item, .user-account {
+    padding-top: 10px;
+}
 nav a {
     text-decoration: none;
     color: lightslategrey;
+}
+nav a:link {
+    text-decoration: none;
 }
 nav a:hover {
     color: lightgray;
@@ -23,7 +29,7 @@ nav a:hover {
 .logo-nav {
     width: 48px;
 }
-.user-icon {
+.user-account {
     width: auto;
     height: auto;
     color: lightslategray;
