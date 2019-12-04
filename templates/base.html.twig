@@ -28,11 +28,32 @@
                 </li>
                 <li class="user-account">
                     {% dump(app.session) %}
-                    {% if displayName is defined %}
-                    <a href="https://www.bungie.net/fr/OAuth/Authorize?client_id=31249&response_type=code">
-                        <i class="fas fa-user-alt fa-2x"></i>
-                        <span>{{ displayName }}</span>
-                    </a>                    
+                    {% if displayName is defined %}                   
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn-account" data-toggle="modal" data-target="#exampleModal">
+                    <span>{{ displayName }}</span>
+                    <i class="fas fa-user-alt fa-2x"></i>                        
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">La pop'in de la mort</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Voici un choix crucial pour votre vie future, l'avenir de toute votre famille ne tient qu'à un clic !
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Je rèste juste pour t'emmerder</button>
+                                <button type="button" class="btn btn-primary">Vire moi tes miches de là !</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>                 
                     {% else %}                
                     <a href="https://www.bungie.net/fr/OAuth/Authorize?client_id=31249&response_type=code">
                         <i class="fas fa-user-alt fa-3x"></i>

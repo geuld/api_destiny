@@ -36,6 +36,14 @@ nav a:hover {
     position: absolute;
     right: 3%;
 }
+.btn-account {
+    color: lightslategray;
+    background-color: rgb(17, 17, 17);
+    border: none;
+}
+.btn-account:hover {
+    color: lightgray;
+}
 
 .home-background {
     margin-top: 0;
