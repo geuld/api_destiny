@@ -16,7 +16,7 @@ class LoginController extends AbstractController
     }
 
     /**
-     * @Route("/login")
+     * @Route("/login", name="login")
      */
     public function login()
     {
@@ -32,7 +32,7 @@ class LoginController extends AbstractController
     }
 
     /**
-     * @Route("/logout")
+     * @Route("/logout", name="logout")
      */
     public function logout()
     {

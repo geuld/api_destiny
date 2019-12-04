@@ -31,8 +31,8 @@
                     {% if displayName is defined %}                   
                     <!-- Button trigger modal -->
                     <button type="button" class="btn-account" data-toggle="modal" data-target="#exampleModal">
-                    <span>{{ displayName }}</span>
-                    <i class="fas fa-user-alt fa-2x"></i>                        
+                        <span>{{ displayName }}</span>
+                        <i class="fas fa-user-alt fa-2x"></i>                        
                     </button>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Je rèste juste pour t'emmerder</button>
-                                <button type="button" class="btn btn-primary">Vire moi tes miches de là !</button>
+                                <a href="{{ path('logout') }}"><button type="button" class="btn btn-dark">Vire moi tes miches de là !</button></a>
                             </div>
                             </div>
                         </div>
