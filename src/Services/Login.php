@@ -30,8 +30,8 @@ class Login
 				],
 			]);
 			$this->setCookies(json_decode($response->getContent()));
-		}
-		return json_decode($response->getContent());
+			return json_decode($response->getContent());
+		}		
 	}
 
 	public function refreshToken()

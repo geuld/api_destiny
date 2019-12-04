@@ -24,13 +24,13 @@ class HomepageController extends AbstractController
     public function index()
     {
         $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-        if (isset($_COOKIE['refresh_token'])) {
-            session_start();
+        if (isset($_COOKIE['refresh_token'])) { 
+            session_start();           
             try {
-               $displayName = $this->login->getDisplayName();
-               return $this->render('homepage.html.twig', [
+                $displayName = $this->login->getDisplayName();
+                return $this->render('homepage.html.twig', [
                    'displayName' => $displayName
-               ]);
+                ]);
             } catch (Exception $e) {
                 $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
                 return $this->redirectToRoute('homepage', ['error' => 1]);
