@@ -14,10 +14,10 @@ class Login
 		$this->logger = $logger;
 	}
 
-    public function getToken($code = '')
+    public function getToken($code)
     {
 		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-		if (!isset($_COOKIE['refresh_token'])) {
+		if (isset($code)) {
 			$client = HttpClient::create();
 			$response = $client->request('POST', $_ENV['URL_TOKEN'], [
 				'headers' => [
@@ -31,7 +31,13 @@ class Login
 			]);
 			$this->setCookies(json_decode($response->getContent()));
 		}
-		else {
+		return json_decode($response->getContent());
+	}
+
+	public function refreshToken()
+	{
+		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
+		if (isset($_COOKIE['refresh_token'])) {
 			$client = HttpClient::create();
 			$response = $client->request('POST', $_ENV['URL_TOKEN'], [
 				'headers' => [
@@ -45,27 +51,27 @@ class Login
 			]);			
 			$this->setCookies(json_decode($response->getContent()));
 		}
-
 		return json_decode($response->getContent());
 	}
 	
 	public function setCookies($response)
 	{
 		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-		setCookie("access_token", $response->access_token, time() + intval($response->expires_in));
-		setCookie("refresh_token", $response->refresh_token, time() + intval($response->refresh_expires_in));
-		setCookie("membership_id", $response->membership_id, time() + intval($response->refresh_expires_in));
+		if (!isset($_COOKIE['access_token'])) {
+			setCookie("access_token", $response->access_token, time() + intval($response->expires_in));
+		}
+
+		if ((!isset($_COOKIE['refresh_token']) || (!isset($_COOKIE['membership_id'])))) {
+			setCookie("refresh_token", $response->refresh_token, time() + intval($response->refresh_expires_in));
+			setCookie("membership_id", $response->membership_id, time() + intval($response->refresh_expires_in));
+		}
 	}
 
-	public function ifSession() 
+	public function ifCookies()
 	{
 		$this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-		if ((session_status() == PHP_SESSION_NONE && isset($_COOKIE['membership_id'])) || (session_status() == PHP_SESSION_ACTIVE && isset($_COOKIE['membership_id']))) {
+		if (isset($_COOKIE['refresh_token'])) {
 			session_start();
-			return $this->getToken();
-		}
-		elseif (session_status() == PHP_SESSION_ACTIVE && !isset($_COOKIE['membership_id'])) {
-			session_destroy();
 		}
 	}
 

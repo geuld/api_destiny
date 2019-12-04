@@ -25,7 +25,7 @@ class LoginController extends AbstractController
         $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
         if (isset($_GET['code'])) {
             $code = $_GET['code'];
-            $token = $this->login->getToken($code);
+            $this->login->getToken($code);
             //$user = $this->login->getCurrentUser($token);
             // return $this->render('homepage.html.twig', [
             //     'displayName' => $user->Response->displayName

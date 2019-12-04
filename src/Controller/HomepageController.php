@@ -24,22 +24,33 @@ class HomepageController extends AbstractController
     public function index()
     {
         $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-        try {
-            $token = $this->login->ifSession();
-            if (isset($token->Response->displayName)) {
-                $currentUser = $this->login->getCurrentUser($token->access_token);
-                return $this->render('homepage.html.twig', [
-                    'displayName' => $currentUser->Response->displayName
-                ]);
+        if (isset($_COOKIE['refresh_token'])) {
+            session_start();
+            if (!isset($_COOKIE['access_token'])) {
+                try {
+                    $refreshToken = $this->login->refreshToken();
+                    $currentUser = $this->login->getCurrentUser($refreshToken->access_token);
+                    return $this->render('homepage.html.twig', [
+                        'displayName' => $currentUser->Response->displayName
+                    ]);
+                } catch (Exception $e) {
+                    $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
+                    return $this->redirectToRoute('homepage', ['error' => 1]);
+                }
             }
             else {
-                return $this->render('homepage.html.twig');
+                try {
+                    $currentUser = $this->login->getCurrentUser($_COOKIE['access_token']);
+                    return $this->render('homepage.html.twig', [
+                        'displayName' => $currentUser->Response->displayName
+                    ]);
+                } catch (Exception $e) {
+                    $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
+                    return $this->redirectToRoute('homepage', ['error' => 1]);
+                }
             }
-        } catch (Exception $e) {
-            $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
-            return $this->redirectToRoute('homepage', ['error' => 1]);
         }
-        
+        return $this->render('homepage.html.twig');        
     }
 
     /**
