@@ -1,0 +1,48 @@
+
+.jumbotron {
+    background-color: #e9ecef4f;
+}
+
+.jumboserach {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+}
+
+.formsearch {
+    margin: 0;
+}
+
+#search {
+    background-color: #e9ecef1f;
+    width: 100%;
+    color: lightslategrey;
+    margin-left: 2%;
+}
+#search:hover {
+    color: lightgray;
+}
+#search:focus {
+    color: lightgray;
+}
+
+.line-search {
+    display: flex;
+    width: 100%;
+}
+
+.logo-plateforme {
+    margin-right: 1%;
+}
+
+
+/*********************************************************************************************************************************************************************/
+/**************************************************************************  DESKTOP  ********************************************************************************/
+/*********************************************************************************************************************************************************************/
+
+@media screen and (min-width: 1080px) {
+    
+   
+}

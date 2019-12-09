@@ -1,9 +1,39 @@
 {% extends "base.html.twig" %}
 
-{% block stylesheets %}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+{% endblock %}
 
 
 {% block body %}
+
+<div class="jumbotron jumboserach">
+    <div class="container">
+        <form class="formsearch" method="post" action="">
+            <div class="form-group line-search">
+                <button class="logo-plateforme btn search-btn btn-secondary" id="btn-xbox">
+                    <i class="fab fa-xbox"></i>
+                </button>
+                <button class="logo-plateforme btn search-btn btn-secondary" id="btn-playstation">
+                    <i class="fab fa-playstation"></i>
+                </button>
+                <button class="logo-plateforme btn search-btn btn-secondary" id="btn-steam">
+                    <i class="fab fa-steam"></i>
+                </button>
+                
+                <input type="search" class="form-control" id="search">
+                    
+                </input>
+                <button class="search-loupe btn search-btn btn-secondary" type="submit" name="search">
+                        <i class="fas fa-search"></i>
+                </button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
 
 
