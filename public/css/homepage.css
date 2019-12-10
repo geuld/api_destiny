@@ -18,6 +18,7 @@
 #search {
     background-color: #e9ecef1f;
     width: 100%;
+    height: 100%;
     color: lightslategrey;
     margin-left: 2%;
 }
@@ -32,9 +33,16 @@
     display: flex;
     width: 100%;
 }
+.radiosearch {
+    display: none;
+}
 
 .logo-plateforme {
     margin-right: 1%;
+}
+
+.logo-btn {
+    border-radius: 10%;
 }
 
 
@@ -43,6 +51,14 @@
 /*********************************************************************************************************************************************************************/
 
 @media screen and (min-width: 1080px) {
-    
-   
+    .jumbocontain {
+        margin-left: 20px;
+        padding-right: 50px;
+    }  
+    .line-search {
+        height: 46px;
+    } 
+    .search-loupe {
+        margin-left: 1%;
+    }
 }
