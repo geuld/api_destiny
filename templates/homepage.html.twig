@@ -13,32 +13,33 @@
         <form class="formsearch" method="POST" action="searchPlayer" id="searchplayer">
             <div class="form-group line-search">
                 <label for="radio-xbox" class="logo-plateforme">
-                    <div type="button" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-xbox">                     
+                    <div type="button" title="xbox" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-xbox">                     
                         <i class="fab fa-xbox fa-2x"></i>   
                         <input class="radiosearch" type="radio" id="radio-xbox" name="plateforme" value="1">
                     </div>
                 </label>             
                 <label for="radio-playstation" class="logo-plateforme">
-                    <div type="button" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-playstation">                    
+                    <div type="button" title="playstation" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-playstation">                    
                         <i class="fab fa-playstation fa-2x"></i>
                         <input class="radiosearch" type="radio" id="radio-playstation" name="plateforme" value="2">
                     </div>
                 </label>
                 <label for="radio-steam" class="logo-plateforme">
-                    <div type="button" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-steam">
+                    <div type="button" title="steam" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-steam">
                         <i class="fab fa-steam fa-2x"></i>
                         <input class="radiosearch" type="radio" id="radio-steam" name="plateforme" value="4">
                     </div>
                 </label>
                 <label for="radio-stadia" class="logo-plateforme">
-                    <div type="button" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-stadia">
+                    <div type="button" title="stadia" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-stadia">
                         <i class="fab fa-steam fa-2x"></i>
-                        <input class="radiosearch" type="radio" id="radio-stadia" name="plateforme" value="5">
+                        <input class="radiosearch" type="radio" id="radio-stadia" name="plateforme" value="5"/>
                     </div>
                 </label>                
                 <input type="search" class="form-control" id="search" name="gamertag"/>
                 <label class="search-loupe btn search-btn btn-secondary" for="inputsearch"><i class="fas fa-search"></i></label>                
                 <input type="submit" name="search" value="" id="inputsearch" style="display:none"/>
+
             </div>
         </form>
     </div>
@@ -47,4 +48,6 @@
 {% endblock %}
 
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+<script src=" {{ asset('js/homepage.js') }}"></script>
+{% endblock %}
