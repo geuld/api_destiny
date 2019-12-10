@@ -40,19 +40,19 @@ class HomepageController extends AbstractController
     }
 
     /**
-     * @Route("/player/{plateforme}/{gamertag}", name="search_player")
+     * @Route("/searchPlayer", name="search_player")
      */
-    public function searchPlayer(Int $plateforme, String $gamertag)
+    public function searchPlayer()
     {
         $this->logger->info(__CLASS__ . '->' . __FUNCTION__ . ' DEBUT');
-
-        try {
-            $id = $this->search->getPlayerId($plateforme, $gamertag);
-            $player = $this->search->getPlayerById($id, $plateforme);
-            return $this->render('playerInfos.html.twig', ['player' => $player]);
-        } catch (Exception $e) {
-            $this->logger->error(__CLASS__ . '->' . __FUNCTION__ . ' => ' . $e->getMessage());
-            return $this->redirectToRoute('homepage', ['error' => 1]);
+        
+        if (isset($_POST['search'])) {
+            $plateforme = $_POST['plateforme'];
+            $gamertag = $_POST['gamertag'];
+            return $this->redirectToRoute('player', ['plateforme' => $plateforme, 'gamertag' => $gamertag]);
+        }
+        else {
+            return $this->redirectToRoute('homepage');
         }
     }
 }

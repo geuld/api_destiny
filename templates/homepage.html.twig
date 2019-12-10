@@ -10,7 +10,7 @@
 
 <div class="jumbotron jumboserach">
     <div class="container-fluid jumbocontain">
-        <form class="formsearch" method="get" action="search_player">
+        <form class="formsearch" method="POST" action="searchPlayer" id="searchplayer">
             <div class="form-group line-search">
                 <label for="radio-xbox" class="logo-plateforme">
                     <div type="button" class="logo-plateforme btn logo-btn search-btn btn-secondary" id="btn-xbox">                     
@@ -35,15 +35,10 @@
                         <i class="fab fa-steam fa-2x"></i>
                         <input class="radiosearch" type="radio" id="radio-stadia" name="plateforme" value="5">
                     </div>
-                </label>
-                
-                <input type="search" class="form-control" id="search">
-                    
-                </input>
-                <button class="search-loupe btn search-btn btn-secondary" type="submit" name="search">
-                        <i class="fas fa-search"></i>
-                </button>
-                
+                </label>                
+                <input type="search" class="form-control" id="search" name="gamertag"/>
+                <label class="search-loupe btn search-btn btn-secondary" for="inputsearch"><i class="fas fa-search"></i></label>                
+                <input type="submit" name="search" value="" id="inputsearch" style="display:none"/>
             </div>
         </form>
     </div>

@@ -39,7 +39,6 @@ class SearchPlayer
 				'X-Api-Key' => $_ENV['API_KEY']
 			],
         ]);
-
         return json_decode($response->getContent());
     }
 }
